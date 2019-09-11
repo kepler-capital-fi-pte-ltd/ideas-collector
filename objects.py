@@ -1,7 +1,7 @@
 import datetime
 
 class Idea(object):
-    def __init__(iden, barrid, company, author, market, position, thesis, metadata):
+    def __init__(self, iden, barrid, company, author, market, position, thesis, metadata):
         self.iden = iden
         self.created = datetime.now()
         self.barrid = barrid
@@ -13,7 +13,7 @@ class Idea(object):
         self.metadata = metadata
 
 class User(object):
-    def __init__(iden, username, password, born, status):
+    def __init__(self, iden, username, password, born, status):
         self.iden = iden
         self.username = username
         self.password = password
