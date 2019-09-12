@@ -22,7 +22,7 @@ def create_idea(**kwargs) -> str:
     new = Idea(kwargs)
     new.save()
 
-def load_idea(iden : String): -> dict:
+def load_idea(iden : String) -> dict:
     return Idea.query.filter_by(iden=iden).first()
 
 def update_idea(idea : Idea, changes : dict) -> str:
