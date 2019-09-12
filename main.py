@@ -12,4 +12,3 @@ def notes_list():
     if request.method == 'POST':
         req = request.data.get_json()
         return create_idea.get_reuters_code(req['search_key'])
-2
