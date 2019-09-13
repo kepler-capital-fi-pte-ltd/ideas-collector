@@ -1,6 +1,0 @@
-dbname = ideas-collector
-type = MariaDB
-url = ideas-collector.csiaqjz2well.us-east-2.rds.amazonaws.com
-port = 3306
-user = admin
-password = Summer2019
