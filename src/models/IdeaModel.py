@@ -25,6 +25,15 @@ class IdeaModel(db.Model):
 
     __tablename__ = 'ideas'
 
+    def __init__(self, data: dict):
+        self.reuters_id = data.get('reuters_id')
+        self.company = data.get('company')
+        self.author = data.get('author')
+        self.market = data.get('market')
+        self.position = data.get('position')
+        self.thesis = data.get('thesis')
+        self.metadata_ = data.get('metadata_')
+
     iden = db.Column(db.Integer, primary_key=True)
     created_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     modified_at = db.Column(db.DateTime, nullable=False, onupdate=datetime.utcnow)
@@ -50,17 +59,17 @@ class IdeaModel(db.Model):
         db.session.commit()
 
     @staticmethod
-    def get_all():
-        return IdeaModel.query.all()
+    def get_all(limit: int):
+        return IdeaModel.query.limit(limit).all()
 
     @staticmethod
-    def get(iden: str):
+    def get(iden: int):
         return IdeaModel.query.get(iden)
 
 
 class IdeaSchema(Schema):
     """
-    Idea Schema
+    Idea Schema (marshmallow)
 
     """
 

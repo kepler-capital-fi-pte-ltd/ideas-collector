@@ -1,7 +1,8 @@
-import os, sys
+import os
+import sys
 
-from flask_script import Manager
 from flask_migrate import Migrate, MigrateCommand
+from flask_script import Manager
 
 from src import create_app, db
 
@@ -13,7 +14,6 @@ The MigrateCommand contains a set of migration commands such as
     e.g.: python manage.py db init
     
 """
-
 
 env_name = os.getenv('FLASK_ENV')
 
@@ -34,3 +34,14 @@ manager.add_command('db', MigrateCommand)
 
 if __name__ == '__main__':
     manager.run()
+
+
+@manager.command
+def init_db():
+    print("init database...")
+    try:
+        from src.models.IdeaModel import IdeaModel
+        from src.models.PerfomanceModel import PerformanceModel
+        db.create_all()
+    except Exception as e:
+        print(e)

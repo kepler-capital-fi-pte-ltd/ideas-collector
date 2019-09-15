@@ -2,3 +2,4 @@
 .idea
 playbox.ipynb
 venv
+__pycache__
